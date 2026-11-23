@@ -23,7 +23,7 @@ async function create(req,res){
 
 async function getAllEntries(req,res){
      try {
-    const allEntries = await Entry.find({isPublic:true});
+    const allEntries = await Entry.find({isPublic:true}).populate('owner');
     res.status(200).json(allEntries);
   } catch (err) {
     console.log(err);
